@@ -1,5 +1,7 @@
 package exercise.arraysTDD;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -36,6 +38,7 @@ public class ArrayOperations {
 	 *      href="sorting algortihms">http://faculty.cs.niu.edu/~hutchins/csci241/sorting.htm</a>
 	 */
 	public int[] sort() {
+		Arrays.sort(numbers);
 		return numbers;
 	}
 
@@ -56,6 +59,7 @@ public class ArrayOperations {
 	 * @return the unsorted array in reverted order.
 	 */
 	public int[] reverted() {
+		Arrays.sort(numbers, Collections.reverseOrder());
 		return unsorted;
 	}
 
@@ -88,8 +92,13 @@ public class ArrayOperations {
 	 *         and the lowest value.
 	 */
 	public double trimmedMean() {
-		
-		return 0.0;
+		double sum=0;
+		for (int number : numbers) {
+			if ((number!=maxValue())&&(number!=minValue())) {
+				sum=sum+number;
+			}
+		}
+		return sum/(numbers.length-2);
 	}
 
 	/**
