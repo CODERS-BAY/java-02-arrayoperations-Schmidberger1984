@@ -38,7 +38,16 @@ public class ArrayOperations {
 	 *      href="sorting algortihms">http://faculty.cs.niu.edu/~hutchins/csci241/sorting.htm</a>
 	 */
 	public int[] sort() {
-		Arrays.sort(numbers);
+		for (int i = 0; i < numbers.length; i++) {
+			for (int j = 0; j < numbers.length-1; j++) {
+				if (numbers[j]>numbers[j+1]) {
+					int z=numbers[j+1];
+					numbers[j+1]=numbers[j];
+					numbers[j]=z;
+				}
+			}
+		}
+		
 		return numbers;
 	}
 
@@ -59,8 +68,13 @@ public class ArrayOperations {
 	 * @return the unsorted array in reverted order.
 	 */
 	public int[] reverted() {
-		Arrays.sort(numbers, Collections.reverseOrder());
-		return unsorted;
+		int[] j=new int[unsorted.length];
+		int x=unsorted.length-1;
+		for (int i = 0; i < unsorted.length; i++) {
+			j[i]=unsorted[x];
+			x--;
+		}
+		return j;
 	}
 
 	/**
